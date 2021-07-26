@@ -4,9 +4,9 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        final int[] arr = genArr(1000);
+        final int[] arr = genArr(10000);
         //final int[] arr = int[]{3,1,4,2,5,6,7,-3};
-        System.out.println("###初始arr：" + Arrays.toString(arr));
+//        System.out.println("###初始arr：" + Arrays.toString(arr));
         int[] arrClone;
         long startTime;
 
@@ -42,10 +42,16 @@ public class Main {
     public static void log(long startTime, String name, int[] arr){
         long endTime = System.currentTimeMillis();
         long executeTime = endTime - startTime;
-        String text = "***%s排序结果：%s";
-        text += "\n";
-        text += "***%s排序耗时%s毫秒***";
-        text = String.format(text, name, Arrays.toString(arr), name, executeTime);
+        String text;
+        if(false){
+            text = "***%s排序结果：%s";
+            text += "\n";
+            text += "***%s排序耗时%s毫秒***";
+            text = String.format(text, name, Arrays.toString(arr), name, executeTime);
+        }else{
+            text = "***%s排序耗时%s毫秒***";
+            text = String.format(text, name, executeTime);
+        }
         System.out.println(text);
     }
 
