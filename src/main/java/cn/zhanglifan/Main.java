@@ -15,25 +15,28 @@ public class Main {
         startTime = System.currentTimeMillis();
         quickSort.quickSort(arrClone);
         log(startTime, "快速", arrClone);
+        check(arrClone);
 
         arrClone = arr.clone();
         BubbleSort bubbleSort = new BubbleSort();
         startTime = System.currentTimeMillis();
         bubbleSort.bubbleSort(arrClone);
         log(startTime, "冒泡", arrClone);
+        check(arrClone);
 
         arrClone = arr.clone();
         SelectSort selectSort = new SelectSort();
         startTime = System.currentTimeMillis();
         selectSort.selectSort(arrClone);
         log(startTime, "选择", arrClone);
+        check(arrClone);
 
         arrClone = arr.clone();
         InsertSort insertSort = new InsertSort();
         startTime = System.currentTimeMillis();
         insertSort.insetSort(arrClone);
         log(startTime, "插入", arrClone);
-
+        check(arrClone);
     }
 
     public static void log(long startTime, String name, int[] arr){
@@ -54,5 +57,13 @@ public class Main {
         }
 
         return arr;
+    }
+
+    public static void check(int[] arr){
+        for(int i = 0; i < arr.length - 1; i++){
+            if(arr[i] > arr[i+1]){
+                throw new RuntimeException("数组顺序不合法");
+            }
+        }
     }
 }
